@@ -8,11 +8,19 @@ const Sample = () => {
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 
+	const handleOnPress = (e) => {
+		console.log(e);
+		if (e.charCode === 13) {
+			getData(id, setData, setError, setLoading);
+		}
+	};
+
 	return (
 		<main class='main-section'>
 			<section class='input-section'>
 				<div>
 					<input
+						onKeyPress={handleOnPress}
 						type='text'
 						class='input-search'
 						placeholder='Enter your keywords'
