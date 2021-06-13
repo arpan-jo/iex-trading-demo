@@ -1,6 +1,6 @@
-## IEX-Trading Demo
 
 # [Demo](https://iex-trading-demo.netlify.app/)
+## IEX-Trading Demo
 
 -   clone or download zip file of this repo
 -   then open the repo any of code editor
