@@ -61,7 +61,7 @@ const Sample = () => {
               </p>
             </div>
             <div>
-              <p class="heading-p">{data?.high}</p>
+              <p class="heading-p">{data?.latestPrice}</p>
               <p class="sub-head" style={{ color: "#27ae60" }}>
                 ({data?.change})({data?.changePercent}%)
                 <span>&#8593;</span>
