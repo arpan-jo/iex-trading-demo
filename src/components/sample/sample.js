@@ -15,19 +15,13 @@ const Sample = () => {
       }
    };
 
-   const unitchanger = (dollar) => {
-      // Nine Zeroes for Billions
-      return Math.abs(Number(dollar)) >= 1.0e9
-         ? (Math.abs(Number(dollar)) / 1.0e9).toFixed(2) + "B"
-         : // Six Zeroes for Millions
-         Math.abs(Number(dollar)) >= 1.0e6
-         ? (Math.abs(Number(dollar)) / 1.0e6).toFixed(2) + "M"
-         : // Three Zeroes for Thousands
-         Math.abs(Number(dollar)) >= 1.0e3
-         ? (Math.abs(Number(dollar)) / 1.0e3).toFixed(2) + "K"
-         : Math.abs(Number(dollar));
+   const unitchanger = (num) => {
+      var units = ["M", "B", "T", "Q"];
+      var unit = Math.floor((num / 1.0e1).toFixed(0).toString().length);
+      var r = unit % 3;
+      var x = Math.abs(Number(num)) / Number("1.0e+" + (unit - r)).toFixed(2);
+      return x.toFixed(2) + " " + units[Math.floor(unit / 3) - 2];
    };
-
    return (
       <main class="main-section">
          <section class="input-section">
