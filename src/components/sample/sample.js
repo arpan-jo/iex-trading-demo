@@ -8,13 +8,14 @@ const Sample = () => {
    const [error, setError] = useState("");
    const [loading, setLoading] = useState(false);
 
+   // load data by enter-key press
    const handleOnPress = (e) => {
-      console.log(e);
       if (e.charCode === 13) {
          getData(id, setData, setError, setLoading);
       }
    };
 
+   // number unit changer
    const unitchanger = (num) => {
       var units = ["M", "B", "T", "Q"];
       var unit = Math.floor((num / 1.0e1).toFixed(0).toString().length);
@@ -69,7 +70,16 @@ const Sample = () => {
                   </div>
                   <div>
                      <p class="heading-p">{data?.latestPrice}</p>
-                     <p class="sub-head" style={{ color: "#27ae60" }}>
+                     <p
+                        class="sub-head"
+                        style={
+                           data?.change > 0
+                              ? {
+                                   color: "#27ae60",
+                                }
+                              : { color: "#FF0000" }
+                        }
+                     >
                         ({data?.change})({data?.changePercent}%)
                         <span>&#8593;</span>
                      </p>
